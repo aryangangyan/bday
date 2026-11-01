@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Gudiya, With Love From Aaru 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --pink: #e75480;
+  --light-pink: #fff0f5;
+  --rose: #b76e79;
+  --gold: #c9a063;
+  --dark: #75364e;
+  --white: #fff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--dark);
+  background: linear-gradient(135deg, #fff3f7, #ffe0eb, #fffaf5);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 35px 18px 100px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  animation: fade .65s ease;
+}
+
+.page.active { display: flex; }
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1, h2, h3, .script {
+  font-family: 'Dancing Script', cursive;
+  color: var(--pink);
+}
+
+h1 { font-size: clamp(3.2rem, 10vw, 5.7rem); line-height: 1.15; }
+h2 { font-size: clamp(2.5rem, 7vw, 3.8rem); margin-bottom: 18px; }
+h3 { font-size: 1.8rem; margin-bottom: 12px; }
+
+p { line-height: 1.9; }
+.subtitle { max-width: 620px; margin: 18px auto; }
+
+.eyebrow {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: var(--rose);
+  margin: 15px 0;
+}
+
+.heart {
+  font-size: 65px;
+  animation: pulse 1.4s infinite;
+}
+
+@keyframes pulse {
+  50% { transform: scale(1.13); }
+}
+
+.btn {
+  background: var(--pink);
+  color: white;
+  border: none;
+  padding: 13px 22px;
+  margin: 9px 4px;
+  border-radius: 30px;
+  cursor: pointer;
+  font: 600 14px 'Poppins', sans-serif;
+  box-shadow: 0 5px 18px #e7548030;
+  transition: .25s;
+}
+
+.btn:hover { transform: translateY(-3px); background: #c83e6b; }
+.btn.light { background: white; color: var(--pink); border: 1px solid #f5bfd2; }
+
+.badge {
+  display: inline-block;
+  border: 1px solid #e8c18c;
+  background: #ffffffb8;
+  padding: 8px 15px;
+  margin: 6px 3px;
+  border-radius: 30px;
+  font-size: 12px;
+}
+
+.card {
+  width: min(100%, 680px);
+  padding: 25px;
+  background: #ffffffd9;
+  border: 1px solid #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 10px 35px #a34c6a16;
+  margin: 12px auto;
+}
+
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+  background: #fffafcf2;
+  border-top: 1px solid #f3c7d7;
+  padding: 8px 2px;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+nav button {
+  background: transparent;
+  color: #98506a;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font: 12px 'Poppins', sans-serif;
+}
+
+nav button.active { background: var(--pink); color: white; }
+
+.story {
+  text-align: left;
+  white-space: pre-line;
+}
+
+.story p { margin-bottom: 16px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  width: min(100%, 600px);
+  margin: 20px auto;
+}
+
+.photo {
+  background: white;
+  padding: 10px;
+  border-radius: 13px;
+  box-shadow: 0 5px 20px #a34c6a12;
+  transform: rotate(-1deg);
+}
+
+.photo:nth-child(even) { transform: rotate(1deg); }
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #ffe0eb;
+  cursor: pointer;
+}
+
+.photo p {
+  font-family: 'Dancing Script', cursive;
+  font-size: 21px;
+  padding-top: 8px;
+}
+
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  width: min(100%, 580px);
+  margin: 22px auto;
+}
+
+.reason {
+  min-height: 100px;
+  border: 1px solid #e9c18e;
+  background: linear-gradient(135deg, #fff, #fff0f6);
+  color: var(--pink);
+  border-radius: 16px;
+  padding: 12px 5px;
+  cursor: pointer;
+  font-size: 27px;
+  box-shadow: 0 4px 14px #a34c6a12;
+}
+
+.reason span {
+  display: block;
+  font: 11px 'Poppins', sans-serif;
+  margin-top: 5px;
+}
+
+.reason:hover { transform: translateY(-3px); }
+
+#reasonMessage {
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#reasonMessage p { margin-top: 8px; }
+
+#letterContent { display: none; text-align: left; }
+#letterContent.open { display: block; animation: fade .8s ease; }
+
+#surprise {
+  display: none;
+  animation: fade .7s ease;
+}
+
+#surprise.open { display: block; }
+
+.floating {
+  position: fixed;
+  bottom: -35px;
+  z-index: 30;
+  pointer-events: none;
+  animation: floatUp 5s linear forwards;
+}
+
+@keyframes floatUp {
+  to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+footer { font-size: 12px; margin-top: 20px; opacity: .75; }
+
+@media (max-width: 450px) {
+  .card { padding: 20px 16px; }
+  .photo img { height: 135px; }
+  nav button { padding: 10px 8px; font-size: 11px; }
+  .reasons { gap: 8px; }
+  .reason { min-height: 90px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1: BIRTHDAY WELCOME -->
+<section class="page active" id="page1">
+  <div class="heart">💗</div>
+  <p class="eyebrow">A little something from Aaru</p>
+  <span class="badge">✨ A special day for a special soul ✨</span>
+
+  <h1>Happy 21st<br>Birthday!</h1>
+  <h2 style="margin-top:12px">Gudiya 🎀</h2>
+
+  <p class="subtitle">
+    To my favourite college person, my unpaid guardian,
+    my personal caretaker and my forever bestie.
+    Today, this little corner of the internet belongs entirely to you.
+  </p>
+
+  <div>
+    <span class="badge">🎂 Chapter 21</span>
+    <span class="badge">🌷 Pink & Rose Gold</span>
+    <span class="badge">💌 Made by Aaru</span>
+  </div>
+
+  <button class="btn" onclick="goTo(2)">
+    Start Our Little Journey 💌
+  </button>
+
+  <footer>Made with lots of love, just for Ashmita ♡</footer>
+</section>
+
+
+<!-- PAGE 2: COLLEGE MEMORIES -->
+<section class="page" id="page2">
+  <p class="eyebrow">Our friendship scrapbook</p>
+  <h2>The College Mummy Chronicles 😂</h2>
+
+  <div class="card story">
+    <p>😭😂 Ashmita bhai, yaad hai jab main college aaya tha toh meri social life literally ZERO thi?</p>
+
+    <p>Kisi se baat nahi karta tha, bas tere peeche peeche ghoomta rehta tha jaise bichhda hua bachha apni mummy ko dhoondh raha ho 💀😭</p>
+
+    <p>Tune hi poora college ghumaya, logon se milwaya, yahan kaise rehna hai, kaise baat karni hai, sab sikhaya.</p>
+
+    <p>Basically college ka student main tha, par admission tera bhi hua tha as my personal guardian and caretaker 😭😂</p>
+
+    <p>Kabhi kabhi lagta hai college ne mujhe degree dene ke liye admission diya tha aur tujhe mujhe paalne ki responsibility di thi 😭🙏🏻</p>
+
+    <p>Tune mujhe college life sikhayi, logon ko samajhna sikhaya, aur phir dheere dheere mujhe insaanon se baat karna bhi sikha diya 😭😂</p>
+
+    <p>Sach mein tu meri dost kam aur college wali mummy zyada rahi hai. Bas farak itna hai ki mummy daantti hai toh ghar pe rehti hai, aur tu daantti hai toh college mein bhi chain nahi milta 💀😂</p>
+
+    <p>But genuinely, agar tu nahi hoti na, toh mera college life ka starting season ekdum boring aur directionless hota.</p>
+
+    <p>Thank you meri unpaid mummy cum bestie for handling this namoona 😭❤️🫂</p>
+  </div>
+
+   
+  </div>
+
+  <button class="btn" onclick="goTo(3)">One Thing I Need to Tell You 💌</button>
+</section>
+
+
+<!-- PAGE 3: PERSONAL LETTER -->
+<section class="page" id="page3">
+  <p class="eyebrow">A letter from Aaru's heart</p>
+  <h2>Dear Gudiya 💗</h2>
+
+  <div class="card">
+    <div id="letterCover">
+      <div style="font-size:70px">💌</div>
+      <p>There's something I want you to read, birthday girl.</p>
+      <p class="script" style="font-size:27px;margin:12px">Open this little letter ♡</p>
+      <button class="btn" onclick="openLetter()">Open My Letter</button>
+    </div>
+
+    <div id="letterContent">
+      <p>Happy 21st birthday, Gudiya! ❤️🫂</p>
+
+      <p>On your special day, I just want to tell you how grateful I am that you became a part of my life. You have made my college journey so much better, and I genuinely don't think my starting days would have been the same without you.</p>
+
+      <p>Thank you for being patient with me, for guiding me, for putting up with my nonsense, and for being the person who made a new place feel a little less unfamiliar. You have helped me in ways that I might not always be able to explain properly, but I truly appreciate every bit of it.</p>
+
+      <p>I hope the days ahead bring you endless happiness, peace, and all the beautiful things you deserve. I hope life gives you countless reasons to smile, people who appreciate your heart, and opportunities that take you closer to everything you dream of.</p>
+
+      <p>No matter how life changes or where the coming days take us, I hope you always know that you hold a special place in my life.</p>
+
+      <p>Aur ek baat hamesha yaad rakhna, Gudiya. Chahe life mein kitni bhi badi problem kyun na aa jaye ya main kitna bhi busy kyun na rahun, Ashmita ke liye Aryan hamesha hazir hoga.</p>
+
+      <p>Tera message aayega toh main apne busy schedule mein se bhi tere liye time nikaal kar reply zaroor karunga. Tujhe kabhi bhi mujhse baat karne se pehle sochna nahi padega ki main busy hounga ya nahi.</p>
+
+      <p>Bas ek baar yaad karna. Ek minute mein Aryan, Ashmita ke liye hazir hoga. ❤️</p>
+
+      <p>Ye sirf birthday wish nahi, balki tujhse ek wada hai. 🫂</p>
+
+      <p>Thank you for being my bestie, my college wali mummy, and one of the most special people in my life.</p>
+
+      <p>Happy 21st birthday, meri Gudiya. Hamesha khush rehna, apna khayal rakhna, aur apni beautiful si smile kabhi mat khona. ❤️</p>
+
+      <p class="script" style="font-size:32px;margin-top:18px">Forever your Aaru ♡</p>
+    </div>
+  </div>
+
+  <button class="btn" onclick="goTo(4)">Your Final Birthday Surprise 🎁</button>
+</section>
+
+
+<!-- PAGE 4: 21 REASONS -->
+<section class="page" id="page4">
+  <p class="eyebrow">21 years of being wonderful</p>
+  <h1 style="font-size:clamp(3rem,9vw,5rem)">21 Reasons</h1>
+  <h2>Why You're Special, Gudiya 💗</h2>
+
+  <p class="subtitle">
+    Tap every heart to reveal a little reason.
+    Each one is a reminder that you deserve to be celebrated.
+  </p>
+
+  <div class="reasons" id="reasons"></div>
+
+  <div class="card" id="reasonMessage" aria-live="polite">
+    <h3>Choose a heart, birthday girl 💕</h3>
+    <p>Your little surprise is waiting inside.</p>
+  </div>
+
+  <button class="btn" onclick="showFinalSurprise()">Make Your Birthday Wish 🎂</button>
+
+  <div class="card" id="surprise">
+    <div class="heart">💖</div>
+    <h2>Happy 21st, Gudiya!</h2>
+    <p>May this new chapter bring you happiness you never have to pretend to feel, peace you never have to fight for, and people who make you feel as special as you truly are.</p>
+    <p style="margin-top:12px">And whenever you need your unpaid college caretaker's caretaker, remember that Aaru is just one message away. 😂❤️</p>
+    <h3 style="margin-top:18px">Love you, bestie! 🫂</h3>
+    <p class="script" style="font-size:30px">— Your Aaru ♡</p>
+    <button class="btn" onclick="celebrate()">Celebrate Again! 🎉</button>
+  </div>
+
+  <button class="btn light" onclick="goTo(1)">Relive Our Journey ↻</button>
+</section>
+
+
+<!-- PHOTO LIGHTBOX -->
+<div id="lightbox" onclick="this.style.display='none'"
+     style="display:none;position:fixed;inset:0;background:#381525eF;z-index:50;align-items:center;justify-content:center;padding:20px;cursor:pointer">
+  <img id="largePhoto" alt="Enlarged friendship memory"
+       style="max-width:95%;max-height:90vh;object-fit:contain;border-radius:12px">
+</div>
+
+
+<!-- BOTTOM NAVIGATION -->
+<nav>
+  <button id="nav1" class="active" onclick="goTo(1)">🏠 Home</button>
+  <button id="nav2" onclick="goTo(2)">📸 Memories</button>
+  <button id="nav3" onclick="goTo(3)">💌 Letter</button>
+  <button id="nav4" onclick="goTo(4)">🎂 Surprise</button>
+</nav>
+
+
+<script>
+/* EDIT THE 21 REASONS HERE */
+const reasons = [
+  "You make people feel welcome.",
+  "You helped me find my place in college.",
+  "You have a caring heart.",
+  "You know how to guide me.",
+  "You put up with my nonsense 😂",
+  "You make ordinary days memorable.",
+  "You have your own beautiful personality.",
+  "You know how to make me laugh.",
+  "You help people feel less alone.",
+  "You are someone I appreciate deeply.",
+  "You made my college journey better.",
+  "You know how to give advice.",
+  "You are my unpaid college mummy 😭",
+  "You have your own little magic.",
+  "You deserve genuine happiness.",
+  "You make friendship feel special.",
+  "You give me memories worth keeping.",
+  "You are someone I can cheer for.",
+  "You deserve peace and success.",
+  "You are my Gudiya, one of a kind.",
+  "Because you are YOU, and that is enough. ❤️"
+];
+
+const reasonEmojis = [
+  "🌷","🫶","💗","✨","😂","🎀","🌸",
+  "💕","🧸","💌","📸","🌼","😭","💖",
+  "🦋","🤍","🌹","🎁","⭐","🩷","❤️"
+];
+
+const openedReasons = new Set();
+
+const reasonGrid = document.getElementById("reasons");
+
+reasons.forEach((reason, index) => {
+  const button = document.createElement("button");
+  button.className = "reason";
+  button.innerHTML = `${reasonEmojis[index]}<span>Reason ${index + 1}</span>`;
+  button.setAttribute("aria-label", `Reveal reason ${index + 1}`);
+
+  button.addEventListener("click", () => {
+    openedReasons.add(index);
+    document.getElementById("reasonMessage").innerHTML =
+      `<h3>Reason ${index + 1} of 21 💗</h3>
+       <p>${reason}</p>
+       <p style="font-size:25px;margin-top:8px">${reasonEmojis[index]}</p>`;
+
+    button.style.background = "#f8d7e5";
+    button.style.borderColor = "#e75480";
+
+    if (openedReasons.size === 21) {
+      document.getElementById("reasonMessage").innerHTML =
+        `<h3>You opened all 21 hearts! 🎉</h3>
+         <p>Every heart has a reason, but the biggest reason is simply that you are Ashmita. Happy birthday, Gudiya! ❤️</p>`;
+      confetti();
+    }
+  });
+
+  reasonGrid.appendChild(button);
+});
+
+function goTo(number) {
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  document.getElementById("page" + number).classList.add("active");
+
+  document.querySelectorAll("nav button").forEach(button => {
+    button.classList.remove("active");
+  });
+
+  document.getElementById("nav" + number).classList.add("active");
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  if (number === 1) hearts();
+}
+
+function openLetter() {
+  document.getElementById("letterContent").classList.add("open");
+  document.getElementById("letterCover").style.display = "none";
+  hearts();
+}
+
+function zoomPhoto(image) {
+  document.getElementById("largePhoto").src = image.src;
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function showFinalSurprise() {
+  document.getElementById("surprise").classList.add("open");
+  confetti();
+  hearts();
+  document.getElementById("surprise").scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+
+function hearts() {
+  const symbols = ["💗","💕","🌸","✨","💖","🌷"];
+
+  for (let i = 0; i < 12; i++) {
+    const el = document.createElement("span");
+    el.className = "floating";
+    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    el.style.left = Math.random() * 100 + "%";
+    el.style.fontSize = (18 + Math.random() * 18) + "px";
+    el.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 6500);
+  }
+}
+
+function confetti() {
+  const symbols = ["🎉","💗","✨","🌸","💕","🎊"];
+
+  for (let i = 0; i < 35; i++) {
+    const el = document.createElement("span");
+    el.className = "floating";
+    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    el.style.left = Math.random() * 100 + "%";
+    el.style.fontSize = (18 + Math.random() * 20) + "px";
+    el.style.animationDuration = (2 + Math.random() * 3) + "s";
+
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 5500);
+  }
+}
+
+function celebrate() {
+  hearts();
+  confetti();
+}
+
+</script>
+</body>
+  </html>
